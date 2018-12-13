@@ -1,0 +1,8 @@
+config
+node_modules
+public
+src/test/*
+scripts/*
+build/
+postcss.config.js
+src/utils/baiducount/*
