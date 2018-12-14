@@ -63,7 +63,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     // This does not produce a real file. It's just the virtual path that is
     // served by WebpackDevServer in development. This is the JS bundle
     // containing code from all our entry points, and the Webpack runtime.
-    filename: 'static/js/bundle.js',
+    filename: 'static/js/[name].js',
     // There are also additional JS chunk files if you use code splitting.
     chunkFilename: 'static/js/[name].chunk.js',
     // This is the URL that app is served from. We use "/" in development.
@@ -82,7 +82,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     },
     // Keep the runtime chunk seperated to enable long term caching
     // https://twitter.com/wSokra/status/969679223278505985
-    runtimeChunk: true,
+    runtimeChunk: false,
   },
   module: {
     rules: [
@@ -264,12 +264,16 @@ const webpackConfig = merge(baseWebpackConfig, {
 });
 
 Object.keys(entryPages).forEach(function(item){
-  webpackConfig.entry[item] = path.resolve(entryPages[item].path);
+  webpackConfig.entry[item] = [
+    require.resolve('react-dev-utils/webpackHotDevClient'),
+    path.resolve(entryPages[item].path)
+  ];
   let plugin = new HtmlWebpackPlugin({
     inject: true,
     title:entryPages[item].title||'粉象生活',
     template: paths.appHtml,
     filename:item + ".html",
+    chunks:[item]
   })
   webpackConfig.plugins.push(plugin);
 })

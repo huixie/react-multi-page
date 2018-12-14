@@ -5,7 +5,6 @@ import _ from 'lodash';
 import { Toast } from 'antd-mobile';
 
 const hostConfig = require('@/api/host');
-// import { apiNjia } from '@/api/host';
 
 axios.defaults.baseURL = hostConfig.apiNjia;
 // 自定义判断元素类型JS
@@ -70,7 +69,7 @@ function apiAxios(method, url:string, params:{}, identity:boolean) {
 
 // 返回调用接口方式
 const $axios = {
-  get: (api:String, identity:Boolean) => (params:Object) => apiAxios('GET', api, params, identity),
+  get: (api:String, identity:Boolean) => (params:Object) => apiAxios('GET', api, params, 'identity'),
   getById: (api:String, identity:Boolean) => (params:Object) => apiAxios('GET', `${api}/${params.id}`, params, identity),
   post: (api:String, identity:Boolean) => (params:Object) => apiAxios('POST', api, params, identity),
 };

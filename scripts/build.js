@@ -108,8 +108,8 @@ checkBrowsers(paths.appPath, isInteractive)
         useYarn
       );
 
-      //上传打包文件
-      fxSharedNode.uploadOSS('build',uploadOSSConfig[process.env.BUILD_ENV].bucket_path,uploadOSSConfig[process.env.BUILD_ENV].bucket_name)
+      // //上传打包文件到oss
+      // fxSharedNode.uploadOSS('build',uploadOSSConfig[process.env.BUILD_ENV].bucket_path,uploadOSSConfig[process.env.BUILD_ENV].bucket_name)
     },
     err => {
       console.log(chalk.red('Failed to compile.\n'));

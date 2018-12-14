@@ -309,7 +309,7 @@ Object.keys(entryPages).forEach(function(item){
     title:entryPages[item].title || '粉象生活',
     template: paths.appHtml,
     filename:item + ".html",
-    // chunks:[item],
+    chunks:[item],
     minify: {
       removeComments: true,
       collapseWhitespace: true,

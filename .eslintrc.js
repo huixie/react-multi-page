@@ -12,9 +12,6 @@ module.exports = {
     "import",
     "flowtype"
   ],
-  settings:{
-    "import/resolver":"webpack"
-  },
   "extends": ["airbnb",'airbnb-base'],
   "rules": {
     "react/jsx-filename-extension":0,
@@ -31,6 +28,7 @@ module.exports = {
     "no-nested-ternary":0,
     "no-unused-expressions":0,
     "no-unused-vars":0,
-    "import/no-extraneous-dependencies":0
+    "import/no-extraneous-dependencies":0,
+    "import/prefer-default-export":0  
   }
 }
