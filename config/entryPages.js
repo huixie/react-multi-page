@@ -8,5 +8,5 @@ const _basePath='src/pages'
 module.exports ={
   'test':{path : _basePath + '/Test.js', title:'测试'},
   'test2':{path : _basePath + '/test/Test.js', title:'测试2'},
-  // 'a/about':{path : _basePath + '/about/index.js', title:'关于我们'},
+  'about':{path : _basePath + '/about/index.js', title:'关于我们'},
 }
